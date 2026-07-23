@@ -2,6 +2,8 @@
 
 > An authorized internal network assessment of a small business, and how a single missing boundary (guest WiFi sharing one broadcast domain with the payment and fiscal systems) turned "anyone with a phone in the waiting area" into a direct path to the point-of-sale terminals.
 
+![Network before and after: a flat /24 where guest Wi-Fi reaches the payment systems, versus a segmented design with a guest VLAN behind an L3 firewall](diagram.png)
+
 **Author:** le0n3das · Security & infrastructure consultant (networks / Linux / SMB security)
 **Type:** Internal network penetration test (assumed-breach, authenticated WiFi client)
 **Client:** a multi-store auto-parts retailer (SMB) in Brazil, anonymized with the owner's consent

@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" font-family="'DejaVu Sans','Segoe UI',Arial,sans-serif">
+  <defs>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1e7a48"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="900" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="800" y="52" text-anchor="middle" font-size="32" font-weight="700" fill="#1f2933">Guest Wi-Fi shared one broadcast domain with the payment systems</text>
+  <text x="800" y="88" text-anchor="middle" font-size="19" fill="#667085">SMB retail network assessment (sanitized)</text>
+
+  <!-- ============ LEFT PANEL: BEFORE ============ -->
+  <rect x="40" y="120" width="720" height="740" rx="16" fill="#fafbfc" stroke="#e3e8ee" stroke-width="2"/>
+  <text x="400" y="164" text-anchor="middle" font-size="26" font-weight="700" fill="#c0392b">BEFORE: one flat /24</text>
+
+  <!-- AP row -->
+  <rect x="90" y="190" width="620" height="52" rx="10" fill="#eef1f4" stroke="#cfd6dd" stroke-width="1.5"/>
+  <text x="400" y="223" text-anchor="middle" font-size="17" fill="#1f2933">Wi-Fi access point &#183; 3 SSIDs &#183; 1 broadcast domain</text>
+
+  <!-- SSID chips -->
+  <rect x="90" y="258" width="195" height="46" rx="8" fill="#fdecec" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="187" y="286" text-anchor="middle" font-size="15" font-weight="600" fill="#b02a2a">Guest Wi-Fi (open)</text>
+  <rect x="302" y="258" width="196" height="46" rx="8" fill="#eef1f4" stroke="#cfd6dd" stroke-width="1.5"/>
+  <text x="400" y="286" text-anchor="middle" font-size="15" fill="#1f2933">Admin</text>
+  <rect x="515" y="258" width="195" height="46" rx="8" fill="#eef1f4" stroke="#cfd6dd" stroke-width="1.5"/>
+  <text x="612" y="286" text-anchor="middle" font-size="15" fill="#1f2933">Staff</text>
+
+  <!-- broadcast domain container -->
+  <rect x="90" y="332" width="620" height="428" rx="12" fill="#ffffff" stroke="#c0392b" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="400" y="360" text-anchor="middle" font-size="15" font-weight="600" fill="#b02a2a">Same /24 &#183; same gateway &#183; no VLAN, no firewall</text>
+
+  <!-- asset chips -->
+  <g font-size="15.5" fill="#1f2933">
+    <rect x="110" y="380" width="270" height="60" rx="10" fill="#eef1f4" stroke="#cfd6dd" stroke-width="1.5"/>
+    <text x="245" y="416" text-anchor="middle">POS terminal (fiscal)</text>
+    <rect x="420" y="380" width="270" height="60" rx="10" fill="#eef1f4" stroke="#cfd6dd" stroke-width="1.5"/>
+    <text x="555" y="416" text-anchor="middle">NF-e entry workstation</text>
+    <rect x="110" y="460" width="270" height="60" rx="10" fill="#eef1f4" stroke="#cfd6dd" stroke-width="1.5"/>
+    <text x="245" y="496" text-anchor="middle">IIS / ASP.NET server</text>
+    <rect x="420" y="460" width="270" height="60" rx="10" fill="#eef1f4" stroke="#cfd6dd" stroke-width="1.5"/>
+    <text x="555" y="496" text-anchor="middle">Camera NVRs (16 units)</text>
+    <rect x="110" y="540" width="270" height="60" rx="10" fill="#eef1f4" stroke="#cfd6dd" stroke-width="1.5"/>
+    <text x="245" y="576" text-anchor="middle">AP + gateway mgmt</text>
+    <rect x="420" y="540" width="270" height="60" rx="10" fill="#eef1f4" stroke="#cfd6dd" stroke-width="1.5"/>
+    <text x="555" y="576" text-anchor="middle">44 live hosts total</text>
+  </g>
+
+  <!-- attack path: guest chip -> POS -->
+  <path d="M150,306 C150,345 165,362 210,378" fill="none" stroke="#c0392b" stroke-width="3" marker-end="url(#arrowRed)"/>
+
+  <!-- caption -->
+  <text x="400" y="800" text-anchor="middle" font-size="17.5" font-weight="700" fill="#b02a2a">A phone on the guest network reaches the POS.</text>
+
+  <!-- ============ RIGHT PANEL: AFTER ============ -->
+  <rect x="840" y="120" width="720" height="740" rx="16" fill="#fafbfc" stroke="#e3e8ee" stroke-width="2"/>
+  <text x="1200" y="164" text-anchor="middle" font-size="26" font-weight="700" fill="#1e7a48">AFTER: segmented</text>
+
+  <!-- Guest VLAN -->
+  <rect x="890" y="190" width="620" height="92" rx="12" fill="#e8f6ee" stroke="#1e7a48" stroke-width="2"/>
+  <text x="1200" y="228" text-anchor="middle" font-size="19" font-weight="700" fill="#1e7a48">Guest VLAN (isolated)</text>
+  <text x="1200" y="256" text-anchor="middle" font-size="15" fill="#667085">customer devices live here</text>
+
+  <!-- Firewall -->
+  <rect x="890" y="332" width="620" height="58" rx="10" fill="#1f2933"/>
+  <text x="1200" y="368" text-anchor="middle" font-size="18" font-weight="600" fill="#ffffff">L3 firewall: deny guest to fiscal</text>
+
+  <!-- blocked arrow guest -> firewall (X sits above the bar, clear of text) -->
+  <line x1="1200" y1="286" x2="1200" y2="300" stroke="#c0392b" stroke-width="3" marker-end="url(#arrowRed)"/>
+  <g stroke="#c0392b" stroke-width="6" stroke-linecap="round">
+    <line x1="1184" y1="306" x2="1216" y2="328"/>
+    <line x1="1216" y1="306" x2="1184" y2="328"/>
+  </g>
+
+  <!-- allowed arrow firewall -> fiscal -->
+  <line x1="1200" y1="392" x2="1200" y2="428" stroke="#1e7a48" stroke-width="3" marker-end="url(#arrowGreen)"/>
+  <text x="1330" y="416" font-size="14" font-weight="600" fill="#1e7a48">POS/ERP only</text>
+
+  <!-- Fiscal VLAN -->
+  <rect x="890" y="440" width="620" height="320" rx="12" fill="#ffffff" stroke="#1e7a48" stroke-width="2"/>
+  <text x="1200" y="468" text-anchor="middle" font-size="15" font-weight="600" fill="#1e7a48">Fiscal / admin VLAN</text>
+  <g font-size="15.5" fill="#1f2933">
+    <rect x="910" y="484" width="270" height="58" rx="10" fill="#eef1f4" stroke="#cfd6dd" stroke-width="1.5"/>
+    <text x="1045" y="519" text-anchor="middle">POS terminal (fiscal)</text>
+    <rect x="1220" y="484" width="270" height="58" rx="10" fill="#eef1f4" stroke="#cfd6dd" stroke-width="1.5"/>
+    <text x="1355" y="519" text-anchor="middle">NF-e entry workstation</text>
+    <rect x="910" y="560" width="270" height="58" rx="10" fill="#eef1f4" stroke="#cfd6dd" stroke-width="1.5"/>
+    <text x="1045" y="595" text-anchor="middle">IIS / ASP.NET server</text>
+    <rect x="1220" y="560" width="270" height="58" rx="10" fill="#eef1f4" stroke="#cfd6dd" stroke-width="1.5"/>
+    <text x="1355" y="595" text-anchor="middle">Camera NVRs (16 units)</text>
+    <rect x="910" y="636" width="580" height="58" rx="10" fill="#eef1f4" stroke="#cfd6dd" stroke-width="1.5"/>
+    <text x="1200" y="671" text-anchor="middle">AP + gateway management (separate)</text>
+  </g>
+
+  <!-- caption -->
+  <text x="1200" y="800" text-anchor="middle" font-size="17.5" font-weight="700" fill="#1e7a48">Guest VLAN + L3 firewall: guest cannot reach fiscal.</text>
+
+  <!-- center vs badge -->
+  <circle cx="800" cy="490" r="30" fill="#1f2933"/>
+  <text x="800" y="498" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">vs</text>
+
+  <!-- footer -->
+  <text x="800" y="882" text-anchor="middle" font-size="14" fill="#98a2b3">Sanitized: no real client names, IPs, MACs, serials, SSIDs, or credentials.</text>
+</svg>
