@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" font-family="'DejaVu Sans','Segoe UI',Arial,sans-serif">
+  <rect x="0" y="0" width="1600" height="900" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="60" y="58" font-size="34" font-weight="700" fill="#1f2933">What 30 minutes of service enumeration found</text>
+  <text x="60" y="94" font-size="19" fill="#667085">SMB retail network assessment (sanitized) &#183; assumed-breach WiFi client</text>
+
+  <!-- ===================== LEFT: FINDINGS ===================== -->
+  <rect x="40" y="125" width="940" height="700" rx="16" fill="#fafbfc" stroke="#e3e8ee" stroke-width="2"/>
+  <text x="64" y="168" font-size="20" font-weight="700" fill="#1f2933">FINDINGS</text>
+  <text x="956" y="168" text-anchor="end" font-size="16" fill="#667085">2 High &#183; 3 Medium &#183; 1 Low</text>
+
+  <!-- HIGH-01 -->
+  <rect x="64" y="185" width="892" height="82" rx="10" fill="#ffffff" stroke="#e3e8ee" stroke-width="1.5"/>
+  <rect x="80" y="203" width="104" height="46" rx="8" fill="#fdecec" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="132" y="232" text-anchor="middle" font-size="16" font-weight="700" fill="#b02a2a">HIGH</text>
+  <text x="204" y="221" font-size="19" font-weight="600" fill="#1f2933">SMB signing enabled but not required</text>
+  <text x="204" y="248" font-size="15.5" fill="#667085">All 7 Windows hosts &#183; relay-ready lateral movement (T1557.001)</text>
+
+  <!-- HIGH-02 -->
+  <rect x="64" y="279" width="892" height="82" rx="10" fill="#ffffff" stroke="#e3e8ee" stroke-width="1.5"/>
+  <rect x="80" y="297" width="104" height="46" rx="8" fill="#fdecec" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="132" y="326" text-anchor="middle" font-size="16" font-weight="700" fill="#b02a2a">HIGH</text>
+  <text x="204" y="315" font-size="19" font-weight="600" fill="#1f2933">End-of-life Windows build, fleet-wide</text>
+  <text x="204" y="342" font-size="15.5" fill="#667085">Unpatched 4+ years &#183; known RCE / LPE CVEs unaddressed</text>
+
+  <!-- MED-01 -->
+  <rect x="64" y="373" width="892" height="82" rx="10" fill="#ffffff" stroke="#e3e8ee" stroke-width="1.5"/>
+  <rect x="80" y="391" width="104" height="46" rx="8" fill="#fdf3e0" stroke="#d99a2b" stroke-width="1.5"/>
+  <text x="132" y="420" text-anchor="middle" font-size="16" font-weight="700" fill="#a86a12">MED</text>
+  <text x="204" y="409" font-size="19" font-weight="600" fill="#1f2933">Camera fleet leaks device serial pre-auth</text>
+  <text x="204" y="436" font-size="15.5" fill="#667085">Free reconnaissance via an unauthenticated API call</text>
+
+  <!-- MED-02 -->
+  <rect x="64" y="467" width="892" height="82" rx="10" fill="#ffffff" stroke="#e3e8ee" stroke-width="1.5"/>
+  <rect x="80" y="485" width="104" height="46" rx="8" fill="#fdf3e0" stroke="#d99a2b" stroke-width="1.5"/>
+  <text x="132" y="514" text-anchor="middle" font-size="16" font-weight="700" fill="#a86a12">MED</text>
+  <text x="204" y="503" font-size="19" font-weight="600" fill="#1f2933">Broken TLS on camera / VoIP web surface</text>
+  <text x="204" y="530" font-size="15.5" fill="#667085">Shared vendor cert &#183; admin sessions fall back to plaintext</text>
+
+  <!-- MED-03 -->
+  <rect x="64" y="561" width="892" height="82" rx="10" fill="#ffffff" stroke="#e3e8ee" stroke-width="1.5"/>
+  <rect x="80" y="579" width="104" height="46" rx="8" fill="#fdf3e0" stroke="#d99a2b" stroke-width="1.5"/>
+  <text x="132" y="608" text-anchor="middle" font-size="16" font-weight="700" fill="#a86a12">MED</text>
+  <text x="204" y="597" font-size="19" font-weight="600" fill="#1f2933">Hostnames encode fiscal / POS role</text>
+  <text x="204" y="624" font-size="15.5" fill="#667085">The naming convention becomes the attacker's target list</text>
+
+  <!-- LOW-01 -->
+  <rect x="64" y="655" width="892" height="82" rx="10" fill="#ffffff" stroke="#e3e8ee" stroke-width="1.5"/>
+  <rect x="80" y="673" width="104" height="46" rx="8" fill="#eaf1f8" stroke="#2563a0" stroke-width="1.5"/>
+  <text x="132" y="702" text-anchor="middle" font-size="16" font-weight="700" fill="#2563a0">LOW</text>
+  <text x="204" y="691" font-size="19" font-weight="600" fill="#1f2933">VoIP web auth falls back to HTTP Basic</text>
+  <text x="204" y="718" font-size="15.5" fill="#667085">Base64 credentials recoverable from a single captured session</text>
+
+  <!-- footer inside left panel -->
+  <text x="64" y="778" font-size="14.5" fill="#98a2b3">Detected with nmap, netexec, enum4linux-ng and curl, non-destructive scope.</text>
+
+  <!-- ===================== RIGHT: CONTROLS + AMPLIFIER ===================== -->
+  <rect x="1000" y="125" width="560" height="700" rx="16" fill="#fafbfc" stroke="#e3e8ee" stroke-width="2"/>
+  <text x="1024" y="168" font-size="20" font-weight="700" fill="#1e7a48">CONTROLS THAT HELD</text>
+
+  <!-- control 1 -->
+  <rect x="1024" y="185" width="512" height="70" rx="10" fill="#eafaf1" stroke="#1e7a48" stroke-width="1.5"/>
+  <text x="1046" y="217" font-size="18" font-weight="600" fill="#146c40">SMBv1 disabled on all Windows hosts</text>
+  <text x="1046" y="241" font-size="15" fill="#3d8f66">EternalBlue precondition absent</text>
+
+  <!-- control 2 -->
+  <rect x="1024" y="271" width="512" height="70" rx="10" fill="#eafaf1" stroke="#1e7a48" stroke-width="1.5"/>
+  <text x="1046" y="303" font-size="18" font-weight="600" fill="#146c40">Null / guest SMB sessions denied</text>
+  <text x="1046" y="327" font-size="15" fill="#3d8f66">No anonymous share enumeration</text>
+
+  <!-- control 3 -->
+  <rect x="1024" y="357" width="512" height="70" rx="10" fill="#eafaf1" stroke="#1e7a48" stroke-width="1.5"/>
+  <text x="1046" y="389" font-size="18" font-weight="600" fill="#146c40">IIS default site empty</text>
+  <text x="1046" y="413" font-size="15" fill="#3d8f66">No application exposed at the web root</text>
+
+  <!-- amplifier box -->
+  <rect x="1024" y="462" width="512" height="335" rx="12" fill="#fdf6f5" stroke="#c0392b" stroke-width="2"/>
+  <text x="1050" y="500" font-size="18" font-weight="700" fill="#b02a2a">Why the severities shift</text>
+  <text x="1050" y="536" font-size="16.5" fill="#1f2933"><tspan x="1050" dy="0">On a flat network, every one of these</tspan><tspan x="1050" dy="26">"internal only" issues is reachable from</tspan><tspan x="1050" dy="26">the open guest WiFi that any customer</tspan><tspan x="1050" dy="26">can join.</tspan></text>
+  <text x="1050" y="660" font-size="16.5" fill="#1f2933"><tspan x="1050" dy="0">Segmentation is the control that sets the</tspan><tspan x="1050" dy="26">blast radius for all of them. Rate the</tspan><tspan x="1050" dy="26">reachability first, then the vulnerability.</tspan></text>
+  <text x="1050" y="770" font-size="14.5" fill="#98a2b3">Companion to the segmentation writeup.</text>
+
+  <!-- bottom attribution -->
+  <text x="800" y="866" text-anchor="middle" font-size="15" fill="#98a2b3">le0n3das &#183; sanitized writeup of authorized, contracted SMB assessment work</text>
+</svg>
